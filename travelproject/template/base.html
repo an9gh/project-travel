@@ -1,0 +1,35 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>{% block title %} {% endblock title %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+	<link rel="stylesheet" href="{% static 'styles\login.css' %}">
+
+	</head>
+	
+    
+    {% block content %}
+    {% endblock %}
+
+	<script src="{% static 'styles\bootstrap4\jquery.min.js' %}"></script>
+  <script src="{% static 'styles\bootstrap4\popper.login.js' %}"></script>
+  <script src="{% static 'styles\bootstrap4\bootstrap.min2.js' %}"></script>
+  <script src="{% static 'styles\bootstrap4\main.js' %}"></script>
+
+	</body>
+</html>
+
+
+
+
+

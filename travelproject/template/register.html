@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} GoTravel - Register {% endblock title %}
+
+{% block content %}
+
+<style>
+	.register {
+		border: 1px solid white;
+		border-radius: 5px;
+
+	}
+
+
+	ol li {
+		color: white;
+	}
+
+
+
+
+	ul li {
+		color: white;
+		text-decoration:underline;
+	}
+
+	#pass {
+		text-decoration: underline;
+		font-family: cursive;
+		font-size: larger;
+		color: white;
+	}
+	
+	#symb {
+		border: 1px solid white;
+		background-color: whitesmoke;
+		color: black;
+		border-radius: 2em;
+		text-decoration: none;
+	}
+
+</style>
+
+<body class="img js-fullheight" style="background-image: url({% static 'images\header_x.jpg' %});">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="social d-flex text-center">
+					<a href="{% url 'login' %}" class="px-2 py-2 ml-md-1 rounded"><span
+							class="ion-logo-twitter mr-2"></span> Sign In</a>
+					<a href="{% url 'home' %}" class="px-2 py-2 ml-md-1 rounded"><i
+							class="fa fa-chevron-circle-left"></i>
+						Back to home</a>
+				</div>
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Register</h2>
+					<p>
+					<p>Information</p>
+					<ol class="register">
+						<li>You can include 'numbers,_, . ' in your username</li>
+						<li>Passwors are case sensitive type properly</li>
+						<li id="pass"><strong>You can include symbols below-mentioned:</strong> </li>
+						<ul>
+							<li>Uppercase letters: A-Z</li>
+							<li>Lowercase letters: a-z</li>
+							<li>Numbers: 0-9</li>
+							<li id="symb" >Symbols: ~`!@#$%^&*()_-+={[}]|\:;"'<,>.?/</b> </li>
+
+						</ul>
+
+					</ol>
+					</p>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-md-6 col-lg-4">
+					</div>
+					<div class="login-wrap p-0">
+						<h3 class="mb-4 text-center">Do you want an account?</h3>
+
+
+
+						<form action="register" class="signin-form" method="post">
+							{% csrf_token %}
+							<div class="form-group">
+								<input type="text" class="form-control" name="username" placeholder="Username" required>
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" name="first_name" placeholder="First Name"
+									required>
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" name="last_name" placeholder="Last Name"
+									required>
+							</div>
+							<div class="form-group">
+								<input type="email" class="form-control" name="email" placeholder="email" required>
+							</div>
+							<div class="form-group">
+								<input id="password-field" type="password" name="password1" class="form-control"
+									placeholder="Password" required>
+								<span toggle="#password-field"
+									class="fa fa-fw fa-eye field-icon toggle-password"></span>
+							</div>
+							<div class="form-group">
+								<input id="password-field" type="password" name="password2" class="form-control"
+									placeholder=" Confirm Password" required>
+								<span toggle="#password-field"
+									class="fa fa-fw fa-eye field-icon toggle-password"></span>
+							</div>
+							<div class="form-group">
+								<button type="submit" class="form-control btn btn-primary submit px-3">Sign Up</button>
+							</div>
+							<div class="form-group d-md-flex">
+
+
+							</div>
+						</form>
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div>
+		{% for message in messages %}
+		<h4>{{message}}</h4>
+		{% endfor %}
+	</div>
+
+	{% endblock %}
